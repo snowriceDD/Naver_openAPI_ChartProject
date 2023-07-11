@@ -24,7 +24,7 @@ export const InputForm: React.FC<InputFormProps> = ({ onSubmit }) => {
     const [form] = Form.useForm();
     
     const handleSubmit = (values: any) => {
-        const submitValues = {
+        onSubmit({
             startDate: values.startDate.format("YYYY-MM-DD"),
             endDate: values.endDate.format("YYYY-MM-DD"),
             timeUnit: values.timeUnit,
@@ -32,12 +32,10 @@ export const InputForm: React.FC<InputFormProps> = ({ onSubmit }) => {
             keyword: values.keyword,
             device: values.device,
             gender: values.gender,
-            ages: values.ages.split(",").map((age: string) => age.trim()),
-        };
-        onSubmit(submitValues);
-        console.log(submitValues);
+            ages: values.ages,
+          });
     };
-    
+
     return (
         <FormContainer>
         <Form form={form} onFinish={handleSubmit} layout="inline" style={{ justifyContent: 'center'}}>
@@ -76,12 +74,12 @@ export const InputForm: React.FC<InputFormProps> = ({ onSubmit }) => {
                 <Col>
                     <Form.Item label="Ages" name="ages" colon={false} required>
                         <Select mode="multiple" bordered={false}>
-                            <Option value="10s">10s</Option>
-                            <Option value="20s">20s</Option>
-                            <Option value="30s">30s</Option>
-                            <Option value="40s">40s</Option>
-                            <Option value="50s">50s</Option>
-                            <Option value="60s">60s</Option>
+                            <Option value="10">10대</Option>
+                            <Option value="20">20대</Option>
+                            <Option value="30">30대</Option>
+                            <Option value="40">40대</Option>
+                            <Option value="50">50대</Option>
+                            <Option value="60">60대</Option>
                         </Select>
                     </Form.Item>
                 </Col>
@@ -103,7 +101,7 @@ export const InputForm: React.FC<InputFormProps> = ({ onSubmit }) => {
                 </Col>
                 <Form.Item>
                     <Button type="primary" htmlType="submit">
-                        Submit
+                        조회
                     </Button>
                 </Form.Item>
             </Row>

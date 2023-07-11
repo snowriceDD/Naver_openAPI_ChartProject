@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
 /* eslint-disable @typescript-eslint/no-floating-promises */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { useState, useEffect } from "react";
@@ -5,6 +6,7 @@ import useTrendData from "../lib/hooks/useTrendData";
 import { InputForm } from "../lib/components/InputForm";
 
 export function PagesShoppingInsight() {
+  const [ppap, setPpap] = useState({});
   const [params, setParams] = useState({
     startDate: '2017-08-01', 
     endDate: '2017-09-30', 
@@ -17,6 +19,7 @@ export function PagesShoppingInsight() {
   });
   const onSubmit = (param: any) => {
     // 입력 값 처리
+    setParams(param);
     console.log(param);
   };
 
@@ -31,6 +34,7 @@ export function PagesShoppingInsight() {
       <h1>데이터</h1>
       <InputForm onSubmit={onSubmit} />
       <pre>{JSON.stringify(data, null, 2)}</pre>
+      
     </div>
   );
 }
