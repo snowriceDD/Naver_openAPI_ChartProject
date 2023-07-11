@@ -38,12 +38,13 @@ export const Chart = ({transData}: ChartProps) => {
             }}
         >
             <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis />
+            <XAxis dataKey='period' />
+            <YAxis dataKey='ratio' />
             <Tooltip />
             <Legend />
             <Line type="monotone" dataKey="20" stroke="#8884d8" activeDot={{ r: 8 }} />
             <Line type="monotone" dataKey="30" stroke="#82ca9d" />
+            <Line type="monotone" dataKey="40" stroke="#82ca9d" />
         </LineChart>
         </ResponsiveContainer>
     )

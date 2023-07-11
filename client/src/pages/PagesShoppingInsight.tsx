@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-return */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
@@ -32,11 +33,11 @@ export function PagesShoppingInsight() {
   // }
   const transformData = (RequestData: any[]): ChartData[] => {
     const transformedData: { [key: string]: any } = {};
-  
-    RequestData.forEach((RequestData) => {
+    console.log('req',RequestData[0].data)
+    RequestData[0].data.forEach((RequestData: { period: string | number; group: string | number; ratio: any; }) => {
       if (!transformedData[RequestData.period]) {
         transformedData[RequestData.period] = {
-          name: RequestData.period,
+          period: RequestData.period,
           10: 0,
           20: 0,
           30: 0,
@@ -47,11 +48,10 @@ export function PagesShoppingInsight() {
       }
       transformedData[RequestData.period][RequestData.group] = RequestData.ratio;
     });
-    console.log(RequestData)
     return Object.values(transformedData) as ChartData[]; // 형변환을 추가
   };
   const chartData = data ? transformData(data.results) : [];
-
+  console.log('ret',chartData)
   
   if (loading) return <p>데이터를 불러오는 중입니다...</p>;
   if (error) return <p>데이터를 불러오는 데 실패했습니다.</p>;
