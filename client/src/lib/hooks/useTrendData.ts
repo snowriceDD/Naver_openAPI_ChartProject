@@ -4,7 +4,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-interface TrendData {
+export interface TrendData {
   startDate: string;
   endDate: string;
   timeUnit: string;
