@@ -19,11 +19,11 @@
     1. `client` , `server` 폴더 각각 `.env` 파일 만들기
     2. 아래와 같은 양식으로 환경변수 입력
     
-    ```markdown
+    
     VITE_APP_N_CLIENT_ID = 'key~~'
     VITE_APP_N_CLIENT_SECRET = 'key~~'
     VITE_APP_N_URL = 'https://openapi.naver.com/v1/datalab/shopping/category/keyword/age'
-    ```
+    
     
 <br>
 
