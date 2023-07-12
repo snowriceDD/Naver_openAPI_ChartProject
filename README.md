@@ -30,7 +30,7 @@
 
 `yarn start`
 
-
+<br>
 
 # 프로젝트 설명
 ![working](./public/working.png)
@@ -57,16 +57,17 @@
 - naver 쇼핑 url에서 cat_id를 변경했을 땐, 많은 항목을 조회할 수 있었지만, 
     API를 통해 불러오는 data는 너무 적게 확인됨
 
-
+<br>
 
 ## CORS 이슈 대응
 1. PROXY server를 세팅하여 쇼핑인사이트 API 요청을 우회 처리했습니다.
 
-
+<br>
 
 # 선택 구현 사항
 1. Antd를 사용해 Input Form을 구성했습니다.
 2. Redux-Persist를 활용하여 웹사이트를 새로고침하더라도, 마지막으로 조회했던 파라미터가 남도록 했습니다.
 3. Data Fetch를 Custom Hook으로 변경하여 사용했습니다.
 
+<br>
 2023.07.12
