@@ -1,18 +1,11 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-return */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
-/* eslint-disable @typescript-eslint/no-floating-promises */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import useTrendData from "../lib/hooks/useTrendData";
 import { InputForm } from "../lib/components/InputForm";
 import { TrendData } from "../lib/hooks/useTrendData";
 import { Chart, ChartData } from "../lib/components/Chart";
+import s from 'styled-components';
 
 export function PagesShoppingInsight() {
-  const [ppap, setPpap] = useState({});
   const [params, setParams] = useState({
     startDate: '2017-08-01', 
     endDate: '2017-09-30', 
@@ -21,28 +14,14 @@ export function PagesShoppingInsight() {
     keyword: '정장',
     device: '', 
     gender: '',
-    ages: ['20', '30'], 
-    // startDate: '', 
-    // endDate: '', 
-    // timeUnit: '', 
-    // category: '',
-    // keyword: '',
-    // device: '', 
-    // gender: '',
-    // ages: [], 
+    ages: ['20', '30'],
   });
   const onSubmit = (param: TrendData) => {
     setParams(param);
   };
-  
   const [data, loading, error] = useTrendData(params);
-  // const transformData = (data: any) => {
-  //   (data.results[0])
-    
-  // }
   const transformData = (RequestData: any[]): ChartData[] => {
     const transformedData: { [key: string]: any } = {};
-    console.log('req',RequestData[0].data)
     RequestData[0].data.forEach((RequestData: { period: string | number; group: string | number; ratio: any; }) => {
       if (!transformedData[RequestData.period]) {
         transformedData[RequestData.period] = {
@@ -57,20 +36,31 @@ export function PagesShoppingInsight() {
       }
       transformedData[RequestData.period][RequestData.group] = RequestData.ratio;
     });
-    return Object.values(transformedData) as ChartData[]; // 형변환을 추가
+    return Object.values(transformedData) as ChartData[];
   };
   const chartData = data ? transformData(data.results) : [];
-  console.log('ret',chartData)
   
   if (loading) return <p>데이터를 불러오는 중입니다...</p>;
   if (error) return <p>데이터를 불러오는 데 실패했습니다.</p>;
   if (!data) return null;
-  
+  const dataLength = (data.results[0].data.length);
   return (
     <div>
-      <h1>데이터</h1>
+      <h3>Naver openapi - Shopping Insight API</h3>
       <InputForm onSubmit={onSubmit} />
+      <DataIndicator>
+        데이터가 '{dataLength}' 개 있습니다.
+      </DataIndicator>
       <Chart transData={chartData}/>
     </div>
   );
 }
+
+const DataIndicator = s.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+
+  font-size: 1.3rem;
+  font-weight: 700;
+`
