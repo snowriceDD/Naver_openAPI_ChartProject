@@ -1,9 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
-/* eslint-disable @typescript-eslint/no-unsafe-return */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-
 import { Row, Col, Form, Input, Button, DatePicker, Select } from "antd";
 import {FormContainer} from './styled';
 import { useDispatch, useSelector } from "react-redux";
@@ -64,29 +58,29 @@ export const InputForm: React.FC<InputFormProps> = ({ onSubmit }) => {
         <Form form={form} onFinish={handleSubmit} layout="inline" style={{ justifyContent: 'center'}}>
             <Row gutter={24}>
                 <Col span={30}>
-                    <Form.Item label="시작일자" name="startDate" required>
+                    <Form.Item style={{fontWeight: 700}} label="시작일자" name="startDate" required>
                         <DatePicker format="YYYY-MM-DD" />
                     </Form.Item>
                 </Col>
                 <Col>
-                    <Form.Item label="종료일자" name="endDate" required>
+                    <Form.Item style={{fontWeight: 700}} label="종료일자" name="endDate" required>
                         <DatePicker format="YYYY-MM-DD" />
                     </Form.Item>
                 </Col>
                 <Col>
-                    <Form.Item label="카테고리" name="category">
+                    <Form.Item style={{fontWeight: 700}} label="카테고리" name="category" required>
                         <Input />
                     </Form.Item>
                 </Col>
                 <Col>
-                    <Form.Item label="키워드" name="keyword">
+                    <Form.Item style={{fontWeight: 700}} label="키워드" name="keyword" required>
                         <Input />
                     </Form.Item>
                 </Col>
             </Row>
-            <Row gutter={12}>
+            <Row gutter={0}>
                 <Col span={30}>
-                    <Form.Item label="Time Unit" name="timeUnit" colon={false} required>
+                    <Form.Item style={{fontWeight: 600}} label="Time Unit" name="timeUnit" colon={false} required>
                         <Select bordered={false}>
                             <Option value="date">Daily</Option>
                             <Option value="week">Weekly</Option>
@@ -95,7 +89,7 @@ export const InputForm: React.FC<InputFormProps> = ({ onSubmit }) => {
                     </Form.Item>
                 </Col>
                 <Col>
-                    <Form.Item label="Ages" name="ages" colon={false} required>
+                    <Form.Item style={{fontWeight: 600}} label="Ages" name="ages" colon={false} >
                         <Select mode="multiple" bordered={false}>
                             <Option value="10">10대</Option>
                             <Option value="20">20대</Option>
@@ -107,7 +101,7 @@ export const InputForm: React.FC<InputFormProps> = ({ onSubmit }) => {
                     </Form.Item>
                 </Col>
                 <Col>
-                    <Form.Item label="Gender" name="gender" colon={false} required>
+                    <Form.Item style={{fontWeight: 600}} label="Gender" name="gender" colon={false} >
                         <Select bordered={false}>
                             <Option value="m">Male</Option>
                             <Option value="f">Female</Option>
@@ -115,7 +109,7 @@ export const InputForm: React.FC<InputFormProps> = ({ onSubmit }) => {
                     </Form.Item>
                 </Col>
                 <Col>
-                    <Form.Item label="Device" name="device" colon={false} required>
+                    <Form.Item style={{fontWeight: 600}} label="Device" name="device" colon={false} >
                         <Select bordered={false}>
                             <Option value="pc">PC</Option>
                             <Option value="mobile">Mobile</Option>

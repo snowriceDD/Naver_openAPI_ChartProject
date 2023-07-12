@@ -26,7 +26,7 @@ const trendParamsSlice = createSlice({
     name: 'trendParams',
     initialState,
     reducers: {
-        setTrendParams(state, action: PayloadAction<TrendParams>) {
+        setTrendParams(_state, action: PayloadAction<TrendParams>) {
         return action.payload;
         },
     },

@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-return */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-floating-promises */
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -20,13 +17,11 @@ const useTrendData = (reqParams: TrendData) => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<any>(null);
 
-
   useEffect(() => {
     const fetchData = async () => {
       const client_id = import.meta.env.VITE_APP_N_CLIENT_ID;
       const client_secret = import.meta.env.VITE_APP_N_CLIENT_SECRET;
       const apiUrl = "http://localhost:3001/proxy";
-
 
       try {
         console.log(apiUrl)
@@ -47,7 +42,7 @@ const useTrendData = (reqParams: TrendData) => {
 
     fetchData();
   }, [reqParams]);
-
+  
   return [data, loading, error];
 };
 
