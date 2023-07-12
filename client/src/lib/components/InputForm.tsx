@@ -1,9 +1,16 @@
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+/* eslint-disable @typescript-eslint/no-unsafe-return */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import { useState } from "react";
+
 import { Row, Col, Form, Input, Button, DatePicker, Select } from "antd";
 import {FormContainer} from './styled';
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../store/store";
+import { setTrendParams } from "../store/trendParamsSlice";
+import { useEffect } from "react";
+import moment from "moment";
 
 const { Option } = Select;
 
@@ -21,10 +28,24 @@ interface InputFormProps {
 }
 
 export const InputForm: React.FC<InputFormProps> = ({ onSubmit }) => {
+    const trendParams = useSelector((state: RootState) => state.trendParams);
+    const dispatch = useDispatch();
     const [form] = Form.useForm();
+    useEffect(() => {
+        form.setFieldsValue({
+          startDate: moment(trendParams.startDate),
+          endDate: moment(trendParams.endDate),
+          timeUnit: trendParams.timeUnit,
+          category: trendParams.category,
+          keyword: trendParams.keyword,
+          device: trendParams.device,
+          gender: trendParams.gender,
+          ages: trendParams.ages,
+        });
+      }, [trendParams, form]);
     
     const handleSubmit = (values: any) => {
-        onSubmit({
+        const submittedParams = {
             startDate: values.startDate.format("YYYY-MM-DD"),
             endDate: values.endDate.format("YYYY-MM-DD"),
             timeUnit: values.timeUnit,
@@ -33,7 +54,9 @@ export const InputForm: React.FC<InputFormProps> = ({ onSubmit }) => {
             device: values.device,
             gender: values.gender,
             ages: values.ages,
-          });
+          };
+        dispatch(setTrendParams(submittedParams));
+        onSubmit(submittedParams);
     };
 
     return (

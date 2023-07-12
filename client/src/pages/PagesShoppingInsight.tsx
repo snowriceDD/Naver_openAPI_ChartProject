@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-return */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
@@ -21,6 +22,14 @@ export function PagesShoppingInsight() {
     device: '', 
     gender: '',
     ages: ['20', '30'], 
+    // startDate: '', 
+    // endDate: '', 
+    // timeUnit: '', 
+    // category: '',
+    // keyword: '',
+    // device: '', 
+    // gender: '',
+    // ages: [], 
   });
   const onSubmit = (param: TrendData) => {
     setParams(param);
@@ -62,8 +71,6 @@ export function PagesShoppingInsight() {
       <h1>데이터</h1>
       <InputForm onSubmit={onSubmit} />
       <Chart transData={chartData}/>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
-      
     </div>
   );
 }
