@@ -17,6 +17,7 @@ const persistConfig = {
   
   const store = configureStore({
     reducer: persistedReducer,
+    middleware: getDefaultMiddleware => getDefaultMiddleware({ serializableCheck: false }), //직렬화 issue 수정
   });
   
   const persistor = persistStore(store);

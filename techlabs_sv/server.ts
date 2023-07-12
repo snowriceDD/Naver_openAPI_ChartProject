@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express";
-import axios, { AxiosError } from "axios";
+import axios from "axios";
 import cors from "cors";
 import dotenv from 'dotenv';
 
