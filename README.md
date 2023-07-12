@@ -7,11 +7,14 @@
 **1. TECHLABS_fe_2023 클론**
 
  `git clone https://github.com/snowriceDD/TECHLABS_fe_2023.git`
+
  <br>
 
 **2. 의존성 설치**
 `client` , `server` 폴더 각각 → `yarn` or `yarn install`
+
 <br>
+
 **3. 환경 변수 세팅**
     1. `client` , `server` 폴더 각각 `.env` 파일 만들기
     2. 아래와 같은 양식으로 환경변수 입력
@@ -27,7 +30,9 @@
 **4. server 실행**
 
 `npx ts-node server.ts`
+
 <br>
+
 **5. client 실행**
 
 `yarn start`
