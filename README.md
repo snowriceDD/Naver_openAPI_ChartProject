@@ -1,7 +1,8 @@
 # 김윤수
 배포 url : (https://chartproject.vercel.app/)
 - **notice**: server 미가동 시, 데이터 불러오기 X
-  
+
+
 <br>
 
 # 빌드 방법
