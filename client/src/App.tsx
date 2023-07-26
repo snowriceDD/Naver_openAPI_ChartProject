@@ -8,7 +8,7 @@ function App() {
 
   return (
     <>
-      <p>TECHLABS</p>
+      <p>Naver open API - shoppingInsight Charting</p>
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <PagesShoppingInsight/>
