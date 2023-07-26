@@ -1,6 +1,7 @@
 # 김윤수
-배포 url : https://Naver_openAPI_ChartProject.vercel.app/
-
+배포 url : (https://chartproject.vercel.app/)
+- **notice**: server 미가동 시, 데이터 불러오기 X
+- 
 <br>
 
 # 빌드 방법
@@ -41,7 +42,8 @@
 
 # 프로젝트 설명
 ![working](./public/working.png)
-배포 url : https://Naver_openAPI_ChartProject.vercel.app/
+배포 url : (https://chartproject.vercel.app/)
+- **notice**: server 미가동 시, 데이터 불러오기 X
 
 ### 사용 기술
 - React
