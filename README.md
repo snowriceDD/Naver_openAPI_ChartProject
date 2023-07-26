@@ -1,12 +1,12 @@
 # 김윤수
-배포 url : https://techlabs-fe-2023.vercel.app/
+배포 url : https://Naver_openAPI_ChartProject.vercel.app/
 
 <br>
 
 # 빌드 방법
-**1. TECHLABS_fe_2023 클론**
+**1. repository 클론**
 
- `git clone https://github.com/snowriceDD/TECHLABS_fe_2023.git`
+ `git clone https://github.com/snowriceDD/Naver_openAPI_ChartProject.git`
 
  <br>
 
@@ -41,7 +41,7 @@
 
 # 프로젝트 설명
 ![working](./public/working.png)
-배포 url : https://techlabs-fe-2023.vercel.app/
+배포 url : https://Naver_openAPI_ChartProject.vercel.app/
 
 ### 사용 기술
 - React
